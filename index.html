@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>send and close</title>
+<style>
+.overlay{
+  width:100%;
+  height:100%;
+  background-color:#000;
+  opacity:0.5;
+  position:fixed;
+  top:0;
+  left:0;
+  display:none;
+}
+.model_box{
+  width:50%;
+  height:50%;
+  background-color:#fff;
+  opacity:1;
+  position:fixed;
+  top:50px;
+  left:130px;
+  display:none;
+}
+</style>
+</head>
+<body>  
+  <div class="post">
+  <a  class="send_this" href="#">send_this</a>
+  </div>
+  <div class="post">
+  <a  class="send_this" href="#">send_this</a>
+  </div>
+  <div class="post">
+  <a class="send_this" href="#">send_this</a>
+  </div>
+  <div class="post">
+  <a class="send_this" href="#">send_this</a>
+  </div>
+  <div class="post">
+  <a class="send_this" href="#">send_this</a>
+  </div>
+  <div class="post">
+  <a class="send_this" href="#">send_this</a>
+  </div>
+  <div class="overlay">
+  </div>
+  <div class="model_box">
+  <a id="close_this" href="#">close_this</a>
+  </div>
+
+
+</body>
+<script>
+		function handler(e){
+			e.preventDefault();
+
+		let overlays = document.getElementsByClassName("overlay");
+			overlays=overlays[0];
+			overlays.style.display="block";
+		  
+		 let model_boxs = document.getElementsByClassName("model_box");
+			model_boxs=model_boxs[0];
+			model_boxs.style.display="block";
+		}
+
+		function close(el){
+			el.preventDefault();
+
+		let overlays = document.getElementsByClassName("overlay");
+			overlays=overlays[0];
+			overlays.style.display="none";
+		  
+		 let model_boxs = document.getElementsByClassName("model_box");
+			model_boxs=model_boxs[0];
+			model_boxs.style.display="none";
+		}
+
+
+
+		let sendEl=document.getElementsByClassName("send_this");
+
+		for(let i=0; i<sendEl.length; i++){
+			sendEl[i].addEventListener("click", handler);
+
+		}
+
+		let close_thisel = document.getElementById("close_this");
+
+		close_thisel.addEventListener("click", close);
+		  
+
+
+</script>
+</html>
